@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    ports:
+      - "8001:8001"
+    environment:
+      - MONGODB_URL=mongodb://mongodb:27017
+      - DATABASE_NAME=auth_db
+      - ACCESS_TOKEN_EXPIRE_MINUTES=1
+      - REFRESH_TOKEN_EXPIRE_DAYS=7
+      - SECRET_KEY=your-secret-key-for-jwt
+      - ALGORITHM=HS256
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+
+volumes:
+  mongodb_data:
