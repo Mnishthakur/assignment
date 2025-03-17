@@ -1,6 +1,6 @@
 # FastAPI Authentication Service
 
-A clean and simple authentication service built with FastAPI and MongoDB.
+A authentication service built with FastAPI and MongoDB.
 
 ## Features
 
@@ -24,7 +24,7 @@ A clean and simple authentication service built with FastAPI and MongoDB.
 ### Using Docker Compose (Development)
 
 1. Clone the repository:
-```bash
+```
 git clone <repository-url>
 cd <repository-name>
 ```
@@ -69,12 +69,12 @@ python -m uvicorn app.main:app
 ### Kubernetes Deployment (Production)
 
 1. Build and tag the Docker image:
-```bash
+```
 docker build -t auth-api:latest .
 ```
 
 2. Apply the Kubernetes manifests:
-```bash
+```
 kubectl apply -f k8s/mongodb.yaml
 kubectl apply -f k8s/api.yaml
 kubectl apply -f k8s/nginx.yaml
